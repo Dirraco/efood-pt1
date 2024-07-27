@@ -3,74 +3,74 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Cabecalho = styled.div`
-  width: 100%;
-  height: 180px;
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  font-weight: bold;
-
-  div {
-    max-width: 1024px;
-    margin: 0 auto;
     width: 100%;
+    height: 180px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: bold;
 
-    p {
-      cursor: pointer;
+    div {
+        max-width: 1024px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            cursor: pointer;
+        }
     }
-  }
 `
 
 export const Logo = styled.img`
-  width: 125px;
+    width: 125px;
 `
 export const HomeLink = styled(Link)`
-  text-decoration: none;
+    text-decoration: none;
 
-  &:visited {
-    color: ${cores.fontColor};
-  }
+    &:visited {
+        color: ${cores.fontColor};
+    }
 `
 
 export const CabecalhoImg = styled.div`
-  height: 280px;
-  padding: 24px 170px 32px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 1;
-
-  &::after {
-    position: absolute;
-    width: 100%;
     height: 280px;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    content: '';
-  }
+    padding: 24px 170px 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
 
-  div {
-    width: 1024px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    h1:first-child {
-      font-weight: 100;
-      color: ${cores.branco};
-      z-index: 1;
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 280px;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        content: '';
     }
 
-    h1:nth-child(2) {
-      font-weight: 900;
-      color: ${cores.branco};
-      z-index: 1;
+    div {
+        width: 1024px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h1:first-child {
+            font-weight: 100;
+            color: ${cores.branco};
+            z-index: 1;
+        }
+
+        h1:nth-child(2) {
+            font-weight: 900;
+            color: ${cores.branco};
+            z-index: 1;
+        }
     }
-  }
 `

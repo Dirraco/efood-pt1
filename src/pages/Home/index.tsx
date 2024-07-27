@@ -1,46 +1,60 @@
+import React from 'react'
 import Footer from '../../components/Footer'
+import Hero from '../../components/Hero'
 import RestaurantList from '../../components/RestaurantList'
-import HeaderHome from '../../components/HeaderHome'
 import { useGetRestaurantsQuery } from '../../services/api'
 
-export type Cardapio = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
+export type Pedido = {
+    id: number
+    nome: string
+    foto: string
+    preco: number
 }
 
-export type Restaurante = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: string
-  descricao: string
-  capa: string
-  cardapio: Cardapio[]
+export type Restaurant = {
+    id: number
+    titulo: string
+    destacado: boolean
+    tipo: string
+    avaliacao: number
+    descricao: string
+    capa: string
+    cardapio: [
+        {
+            foto: string
+            preco: number
+            id: number
+            nome: string
+            descricao: string
+            porcao: string
+        }
+    ]
 }
+
+export type Food = [
+    {
+        foto: string
+        preco: number
+        id: number
+        nome: string
+        descricao: string
+        porcao: string
+    }
+]
 
 const Home = () => {
-  const { isLoading, error, data: restaurantes } = useGetRestaurantsQuery()
+    const { data: restaurants } = useGetRestaurantsQuery()
 
-  if (isLoading) {
-    return <p>Carregando...</p>
-  }
-
-  if (error) {
-    return <p>Ocorreu um erro ao carregar os restaurantes.</p>
-  }
-
-  return (
-    <>
-      <HeaderHome />
-      {restaurantes && <RestaurantList restaurantes={restaurantes} />}
-      <Footer />
-    </>
-  )
+    if (restaurants) {
+        return (
+            <>
+                <Hero />
+                <RestaurantList restaurants={restaurants} />
+                <Footer />
+            </>
+        )
+    }
+    return <h4>Carregando...</h4>
 }
 
 export default Home

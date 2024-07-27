@@ -1,23 +1,18 @@
 import React from 'react'
-import GlobalStyle, { Container } from './styles'
-import { BrowserRouter } from 'react-router-dom'
-import Rotas from './routes'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalCSS } from './styles'
+import Rotas from './routes'
 import { store } from './store'
-import Cart from './components/Cart'
 
 function App() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Container>
-          <Rotas />
-        </Container>
-        <Cart />
-      </BrowserRouter>
-    </Provider>
-  )
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <GlobalCSS />
+                <Rotas />
+            </BrowserRouter>
+        </Provider>
+    )
 }
-
 export default App
